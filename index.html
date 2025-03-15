@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Decoder</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>QR Code Decoder</h1>
+        
+        <div class="input-section">
+            <div class="upload-section">
+                <h2>Upload QR Code</h2>
+                <input type="file" id="qr-input" accept="image/*" aria-label="Upload QR Code Image">
+                <label for="qr-input" class="file-upload-label">
+                    <i class="fas fa-upload"></i> Choose QR Code Image
+                </label>
+                <div id="file-name" class="file-name">No file selected</div>
+                <button id="decode-button" class="action-button">
+                    <i class="fas fa-qrcode"></i> Decode QR Code
+                </button>
+            </div>
+            
+            <div class="camera-section">
+                <h2>Or Use Camera</h2>
+                <button id="camera-button" class="action-button">
+                    <i class="fas fa-camera"></i> Start Camera
+                </button>
+                <div id="camera-container">
+                    <video id="video" playsinline autoplay aria-label="Camera preview"></video>
+                    <canvas id="camera-canvas" style="display: none;"></canvas>
+                    <button id="capture-button" class="action-button" disabled>
+                        <i class="fas fa-camera-retro"></i> Capture QR Code
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="preview-section">
+            <h2>Preview</h2>
+            <canvas id="canvas" aria-label="QR code preview"></canvas>
+            <div id="loading-indicator" class="hidden">Decoding...</div>
+        </div>
+        
+        <div class="result-section">
+            <h2>Result</h2>
+            <div id="result">
+                <p>Decoded content will appear here</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
